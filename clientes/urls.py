@@ -4,7 +4,7 @@ from .views import persons_new
 from .views import persons_update
 from .views import persons_delete
 
-from .views import PersonList, PersonDetail, PersonCreate, PersonUpdate, PersonDelete
+from .views import PersonList, PersonDetail, PersonCreate, PersonUpdate, PersonDelete, ProdutoBulk
 
 
 urlpatterns = [
@@ -20,4 +20,5 @@ urlpatterns = [
     path('personcreate/', PersonCreate.as_view(), name='person-create'),
     path('personupdate/<pk>/', PersonUpdate.as_view(), name='person-update'),
     path('persondelete/<pk>/', PersonDelete.as_view(), name='person-delete'),
+    path('personbulk/', ProdutoBulk.as_view(), name='person-bulk'),
 ]
