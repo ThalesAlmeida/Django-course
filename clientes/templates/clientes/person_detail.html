@@ -7,10 +7,23 @@
     <title>Document</title>
 </head>
 <body>
-    {{ object }}
+    {{ object.first_name }}
+    {{ object.last_name }}
+    {{ object.doc }}
     {{ object.pub_date|date }}
     {{ now|date }}
     {{ object.reporter }}
+
+    <h2>Vendas</h2>
+    {% for venda in vendas %}
+        <p> Venda id: {{ venda.id }}</p>
+        <h3>Lista de produtos</h3>
+        <ul>
+            {% for produto in venda.produtos.all %}
+            <li>{{ produto.id }} - {{ produto.descricao }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
 
     <a href="{% url 'person-update' person.pk %}">Atualizar</a>
     <a href="{% url 'person-delete' person.pk %}">Deletar</a>
