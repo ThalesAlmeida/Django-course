@@ -53,7 +53,25 @@ def persons_delete(request, id):
 class PersonList(ListView):
     model = Person
     template_name = 'person_list'
+    
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(*kwargs)
+        contador = 0
+
+        primeiro_acesso = self.request.session.get('primeiro_acesso', False)
+
+        if not primeiro_acesso:
+            
+            context['message', 'contador'] = 'Seja bem vindo ao seu primeiro acesso hoje %s contador'
+            self.request.session['primeiro_acesso'] = True
+            
+        else:
+            context['message'] = 'Voce ja acessou hoje'
+            context['contador'] = contador
+        
+
+        return context
 
 class PersonDetail(DetailView):
     model = Person

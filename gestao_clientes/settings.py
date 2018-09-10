@@ -53,12 +53,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-<<<<<<< HEAD
 
     'middlewares.MetaData.MetaData',
-=======
     'debug_toolbar.middleware.DebugToolbarMiddleware',
->>>>>>> 0de8738328bb0b85a45558914840af8f8bb6afc5
+
 ]
 
 ROOT_URLCONF = 'gestao_clientes.urls'
